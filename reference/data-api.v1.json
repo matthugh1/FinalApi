@@ -1,1 +1,1117 @@
-{"swagger":"2.0","info":{"version":"v1","title":"Data API"},"paths":{"/api/AdherencePredefinedReasons":{"get":{"tags":["AdherencePredefinedReasons"],"operationId":"Get","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"type":"string"}}}}}},"/api/AdherenceReport/CampaignName/{campaignName}":{"get":{"tags":["AdherenceReport"],"operationId":"Get","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"campaignName","in":"path","required":true,"type":"string"},{"name":"Start","in":"query","required":false,"type":"string","format":"date-time"},{"name":"End","in":"query","required":false,"type":"string","format":"date-time"},{"name":"PredefinedReason","in":"query","required":false,"type":"string"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentJsonAdherenceReport"}}}}}},"/api/AdherenceReport/Campaign":{"get":{"tags":["AdherenceReport"],"operationId":"Get","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"campaignId","in":"query","required":false,"type":"string","format":"uuid"},{"name":"Start","in":"query","required":false,"type":"string","format":"date-time"},{"name":"End","in":"query","required":false,"type":"string","format":"date-time"},{"name":"PredefinedReason","in":"query","required":false,"type":"string"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentJsonAdherenceReport"}}}}}},"/api/AdherenceReport/Team/{teamName}":{"get":{"tags":["AdherenceReport"],"operationId":"Get","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"teamName","in":"path","required":true,"type":"string"},{"name":"Start","in":"query","required":false,"type":"string","format":"date-time"},{"name":"End","in":"query","required":false,"type":"string","format":"date-time"},{"name":"PredefinedReason","in":"query","required":false,"type":"string"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentJsonAdherenceReport"}}}}}},"/api/AdherenceReport/Agent/{surname}/{foreName}":{"get":{"tags":["AdherenceReport"],"operationId":"Get","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"surname","in":"path","required":true,"type":"string"},{"name":"forename","in":"path","required":true,"type":"string"},{"name":"Start","in":"query","required":false,"type":"string","format":"date-time"},{"name":"End","in":"query","required":false,"type":"string","format":"date-time"},{"name":"PredefinedReason","in":"query","required":false,"type":"string"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentJsonAdherenceReport"}}}}}},"/api/ClientData/Campaigns":{"get":{"tags":["ClientData"],"operationId":"GetCampaigns","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/CampaignNameId"}}}}}},"/api/ClientData/Teams":{"get":{"tags":["ClientData"],"operationId":"GetTeams","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/TeamNameId"}}}}}},"/api/ClientData/Agents":{"get":{"tags":["ClientData"],"operationId":"GetAgents","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentNamesId"}}}}}},"/api/ClientData/Sites":{"get":{"tags":["ClientData"],"operationId":"GetSites","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/SiteNamesId"}}}}}},"/api/ScheduleReport/ByDate":{"get":{"tags":["ScheduleReport"],"operationId":"ByDate","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"dateTime","in":"query","required":false,"type":"string","format":"date-time"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftDailyReport"}}}}}},"/api/ScheduleReport/ByDateAndTeamId":{"get":{"tags":["ScheduleReport"],"operationId":"ByDateAndTeamId","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"dateTime","in":"query","required":false,"type":"string","format":"date-time"},{"name":"teamId","in":"query","required":false,"type":"string","format":"uuid"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftDailyReport"}}}}}},"/api/ScheduleReport/ByDateAndSiteId":{"get":{"tags":["ScheduleReport"],"operationId":"ByDateAndSiteId","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"dateTime","in":"query","required":false,"type":"string","format":"date-time"},{"name":"siteId","in":"query","required":false,"type":"string","format":"uuid"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftDailyReport"}}}}}},"/api/ScheduleReport/ByDateAndCampaignId":{"get":{"tags":["ScheduleReport"],"operationId":"ByDateAndCampaignId","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"dateTime","in":"query","required":false,"type":"string","format":"date-time"},{"name":"campaignId","in":"query","required":false,"type":"string","format":"uuid"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftDailyReport"}}}}}},"/api/ScheduleReport/ByDateAndAgentId":{"get":{"tags":["ScheduleReport"],"operationId":"ByDateAndAgentId","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"dateTime","in":"query","required":false,"type":"string","format":"date-time"},{"name":"agentId","in":"query","required":false,"type":"string","format":"uuid"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftDailyReport"}}}}}},"/api/ScheduleReport/Campaign":{"get":{"tags":["ScheduleReport"],"operationId":"Get","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"CampaignName","in":"query","required":false,"type":"string"},{"name":"Date","in":"query","required":false,"type":"string","format":"date-time"},{"name":"IsTwentyFourHour","in":"query","required":false,"type":"boolean"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftWeekReport"}}}}}},"/api/ScheduleReport/Agent/{surname}/{foreName}":{"get":{"tags":["ScheduleReport"],"operationId":"Get","consumes":[],"produces":["text/plain","application/json","text/json"],"parameters":[{"name":"forename","in":"path","required":true,"type":"string"},{"name":"surname","in":"path","required":true,"type":"string"},{"name":"CampaignName","in":"query","required":false,"type":"string"},{"name":"Date","in":"query","required":false,"type":"string","format":"date-time"},{"name":"IsTwentyFourHour","in":"query","required":false,"type":"boolean"}],"responses":{"200":{"description":"Success","schema":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftWeekReport"}}}}}}},"definitions":{"AgentJsonAdherenceReport":{"type":"object","properties":{"surname":{"type":"string"},"forename":{"type":"string"},"predefinedReason":{"type":"string"},"reports":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AdherenceDate"}}}},"AdherenceDate":{"type":"object","properties":{"date":{"format":"date-time","type":"string"},"report":{"$ref":"#/definitions/AdherenceReport"}}},"AdherenceReport":{"type":"object","properties":{"team":{"type":"string"},"shiftLength":{"type":"string"},"timeInAdherence":{"type":"string"},"totalOOA":{"type":"string"},"authorisedOOA":{"type":"string"},"unathorisedOOA":{"type":"string"},"adherence":{"format":"double","type":"number"},"predefinedReason":{"type":"string"}}},"CampaignNameId":{"type":"object","properties":{"campaign_Name":{"type":"string"},"campaign_Id":{"format":"uuid","type":"string"}}},"TeamNameId":{"type":"object","properties":{"team_Name":{"type":"string"},"team_Id":{"format":"uuid","type":"string"}}},"AgentNamesId":{"type":"object","properties":{"agent_Id":{"format":"uuid","type":"string"},"surname":{"type":"string"},"foreName":{"type":"string"}}},"SiteNamesId":{"type":"object","properties":{"site_Name":{"type":"string"},"site_Id":{"format":"uuid","type":"string"}}},"AgentShiftDailyReport":{"type":"object","properties":{"date":{"format":"date-time","type":"string"},"agentName":{"type":"string"},"internalAgentId":{"format":"uuid","type":"string"},"agentId":{"type":"string"},"campaign":{"type":"string"},"site":{"type":"string"},"shiftStart":{"type":"string"},"shiftEnd":{"type":"string"},"shiftLength":{"type":"string"},"team":{"type":"string"},"breaks":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftBreakReport"}},"activities":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftActivityReport"}}}},"AgentShiftBreakReport":{"type":"object","properties":{"name":{"type":"string"},"start":{"type":"string"},"length":{"type":"string"},"end":{"type":"string"},"breakType":{"type":"string"}}},"AgentShiftActivityReport":{"type":"object","properties":{"name":{"type":"string"},"start":{"type":"string"},"length":{"type":"string"},"end":{"type":"string"},"activityType":{"type":"string"}}},"AgentShiftWeekReport":{"type":"object","properties":{"start":{"type":"string"},"sortStart":{"type":"string"},"length":{"type":"string"},"dayOfTheWeek":{"type":"string"},"end":{"type":"string","readOnly":true},"team":{"type":"string"},"skillSet":{"type":"string"},"forename":{"type":"string"},"surname":{"type":"string"},"campaign":{"type":"string"},"activities":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftActivityReport"}},"breaks":{"uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/AgentShiftBreakReport"}},"nonApplicable":{"type":"boolean"},"shift":{"type":"string"},"rotation":{"format":"int32","type":"integer"},"paidLunch":{"type":"boolean"},"site":{"type":"string"}}}},"securityDefinitions":{"Bearer":{"name":"Authorization","in":"header","type":"apiKey","description":"OAuth2 Authorization token. Add: 'Bearer {your token} into the box below. Make sure there is a space between the end of the wwrd 'Bearer' and the beginning of you token"}},"security":[{"Bearer":[]}]}
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Data API"
+  },
+  "paths": {
+    "/api/report/adherence": {
+      "get": {
+        "tags": [
+          "AdherenceReports"
+        ],
+        "operationId": "AdherenceReport",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "begin",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "campaignId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "agentId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/report/adherenceactivity": {
+      "get": {
+        "tags": [
+          "AdherenceReports"
+        ],
+        "operationId": "GetAdherenceActivityReport",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "begin",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "campaignId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "agentId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/report/adherencetime": {
+      "get": {
+        "tags": [
+          "AdherenceReports"
+        ],
+        "operationId": "AdherenceTimeReport",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "begin",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "campaignId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "agentId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/agent": {
+      "get": {
+        "tags": [
+          "Agent"
+        ],
+        "operationId": "GetAgents",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 20
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "surname"
+          },
+          {
+            "name": "orderDirection",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "asc"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          },
+          {
+            "name": "activeOnly",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Agent"
+        ],
+        "operationId": "CreateAgentDetails",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "agentBm",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/AgentDetailsBindingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/agent/{agentId}/overview": {
+      "get": {
+        "tags": [
+          "Agent"
+        ],
+        "operationId": "GetAgent",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/agent/{agentIds}/details": {
+      "get": {
+        "tags": [
+          "Agent"
+        ],
+        "operationId": "GetAgentDetails",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "agentIds",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/agent/{agentId}": {
+      "delete": {
+        "tags": [
+          "Agent"
+        ],
+        "operationId": "DeleteAgent",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/agent/{agentId}/details": {
+      "put": {
+        "tags": [
+          "Agent"
+        ],
+        "operationId": "UpdateAgentDetails",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "deleteShiftsAfterEndDate",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "agentBm",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/AgentDetailsBindingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/agent/{agentId}/{propertyName}": {
+      "put": {
+        "tags": [
+          "Agent"
+        ],
+        "operationId": "UpdateAgentProperty",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "propertyName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "deleteShiftsAfterEndDate",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "model",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/UpdatePropertyBindingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/agent/{agentId}/holiday": {
+      "put": {
+        "tags": [
+          "Agent"
+        ],
+        "operationId": "UpdateAgentHolidayDetails",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "holidayBm",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/AgentHolidayBindingModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/campaign": {
+      "get": {
+        "tags": [
+          "Campaign"
+        ],
+        "operationId": "GetCampaigns",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 20
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "name"
+          },
+          {
+            "name": "orderDirection",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "asc"
+          },
+          {
+            "name": "includeInactive",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/contactlogimport": {
+      "post": {
+        "tags": [
+          "ContactLogImport"
+        ],
+        "operationId": "Import",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "contactLogs",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ContactLog"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/report/forecaststats": {
+      "get": {
+        "tags": [
+          "ForecastReports"
+        ],
+        "operationId": "GetHistoricForecastStats",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "campaignId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/report/holidayallocation": {
+      "get": {
+        "tags": [
+          "HolidayReports"
+        ],
+        "operationId": "GetHolidayAllocationReport",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "campaignId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "agentId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/report/holidaybooked": {
+      "get": {
+        "tags": [
+          "HolidayReports"
+        ],
+        "operationId": "GetHolidayBookedReport",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "begin",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "campaignId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "agentId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/report/activitysummary": {
+      "get": {
+        "tags": [
+          "ShiftReports"
+        ],
+        "operationId": "GetActivitySummary",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "begin",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "campaignId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "agentId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/report/shiftsummary": {
+      "get": {
+        "tags": [
+          "ShiftReports"
+        ],
+        "operationId": "GetShiftSummary",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "begin",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "campaignId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "agentId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/report/shiftandactivitysummary": {
+      "get": {
+        "tags": [
+          "ShiftReports"
+        ],
+        "operationId": "GetShiftAndActivitySummary",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "begin",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "campaignId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "agentId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/site": {
+      "get": {
+        "tags": [
+          "Sites"
+        ],
+        "operationId": "GetSites",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 20
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "name"
+          },
+          {
+            "name": "orderDirection",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "asc"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/team": {
+      "get": {
+        "tags": [
+          "Team"
+        ],
+        "operationId": "GetTeams",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 20
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "name"
+          },
+          {
+            "name": "orderDirection",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "asc"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi",
+            "uniqueItems": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AgentDetailsBindingModel": {
+      "required": [
+        "forename",
+        "surname"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "agentId": {
+          "type": "string"
+        },
+        "forename": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "dob": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "telephone": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "emailWork": {
+          "type": "string"
+        },
+        "emailPersonal": {
+          "type": "string"
+        },
+        "payrollNo": {
+          "type": "string"
+        },
+        "minHours": {
+          "format": "double",
+          "type": "number"
+        },
+        "maxHours": {
+          "format": "double",
+          "type": "number"
+        },
+        "startDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdatePropertyBindingModel": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "object"
+        }
+      }
+    },
+    "AgentHolidayBindingModel": {
+      "type": "object",
+      "properties": {
+        "holidayAllocation": {
+          "format": "double",
+          "type": "number"
+        },
+        "holidayAllocationRolloverDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "ContactLog": {
+      "type": "object",
+      "properties": {
+        "interval": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "queue": {
+          "type": "string"
+        },
+        "offered": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "handled": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "abandoned": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "aht": {
+          "format": "double",
+          "type": "number"
+        },
+        "serviceLevel": {
+          "format": "double",
+          "type": "number"
+        },
+        "asa": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "backlog": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "forecastQueueId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "oauth2",
+      "flows": {
+        "clientCredentials": {
+          "tokenUrl": "",
+          "refreshUrl": "",
+          "scopes": []
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "host": "api-v2.u-wfm.com/",
+  "basePath": "api",
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ]
+}
